@@ -1,4 +1,3 @@
-import java.awt.image.ReplicateScaleFilter;
 import java.util.Scanner;
 
 public class Calculator {
@@ -64,8 +63,6 @@ public class Calculator {
                 case 4:
                     result = calc.divide(a, b);
                     break;
-                default:
-                    System.out.println("Invalid operation code. Try again");
             }
 
             System.out.println("The result is: " + result + "\n");
