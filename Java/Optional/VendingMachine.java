@@ -5,6 +5,15 @@ public class VendingMachine {
     static String[][] itemArray;
     static int vendingMachineBalance = 0;
 
+    // Print Main menu options
+    public static void printOptions()
+    {
+        System.out.println("Enter the option: ");
+        System.out.println("1. Buy item" );
+        System.out.println("2. View Vending Machine balance");
+    }
+
+    // Initialize product details of VM
     public  static void setupVendingMachine() {
         itemArray = new String[][]{
                 {"001", "Chips", "40"},
@@ -38,21 +47,32 @@ public class VendingMachine {
 
     public static void main(String[] args) {
         char reply = 'n';
+        int option;
         Scanner s = new Scanner(System.in);
         setupVendingMachine();
 
         do {
-            printVendingMachineMenu();
-            // Take user input for item id and amount
-            try {
-                System.out.println("Enter Item ID: ");
-                int id = s.nextInt();
-                System.out.println("Enter amount: ");
-                int amount = s.nextInt();
-                dispenseAndReturnChange(id, amount);
-            } catch (InputMismatchException e) {
-                System.out.println("Entered input is not a number");
+            printOptions();
+            option = s.nextInt();
+            
+            if (option == 1) {
+                printVendingMachineMenu();
+                // Take user input for item id and amount
+                try {
+                    System.out.println("Enter Item ID: ");
+                    int id = s.nextInt();
+                    System.out.println("Enter amount: ");
+                    int amount = s.nextInt();
+                    dispenseAndReturnChange(id, amount);
+                } catch (InputMismatchException e) {
+                    System.out.println("Entered input is not a number");
+                }
+            } else if (option == 2) {
+                System.out.println("Vending machine balance is: Rs " + vendingMachineBalance);
+            } else {
+                System.out.println("Invalid option");
             }
+
             System.out.println("Do you want to continue (y/n)?: ");
             reply = s.next().charAt(0);
         } while (reply == 'Y' || reply == 'y');
