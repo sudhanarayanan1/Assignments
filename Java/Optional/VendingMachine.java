@@ -38,20 +38,23 @@ public class VendingMachine {
 
     public static void main(String[] args) {
         char reply = 'n';
-
+        Scanner s = new Scanner(System.in);
         setupVendingMachine();
-        printVendingMachineMenu();
 
-        // Take user input for item id and amount
-        try {
-            Scanner s = new Scanner(System.in);
-            System.out.println("Enter Item ID: ");
-            int id = s.nextInt();
-            System.out.println("Enter amount: ");
-            int amount = s.nextInt();
-            dispenseAndReturnChange(id, amount);
-        } catch (InputMismatchException e) {
-        System.out.println("Entered input is not a number");
-        }
+        do {
+            printVendingMachineMenu();
+            // Take user input for item id and amount
+            try {
+                System.out.println("Enter Item ID: ");
+                int id = s.nextInt();
+                System.out.println("Enter amount: ");
+                int amount = s.nextInt();
+                dispenseAndReturnChange(id, amount);
+            } catch (InputMismatchException e) {
+                System.out.println("Entered input is not a number");
+            }
+            System.out.println("Do you want to continue (y/n)?: ");
+            reply = s.next().charAt(0);
+        } while (reply == 'Y' || reply == 'y');
     }
 }
