@@ -20,7 +20,7 @@ public class CreateUser {
         userDetails.setPassword("abc");
         userDetails.setUserStatus(1);
 
-        Response createResponse =
+        Response userResponse =
                 given().
                         contentType(ContentType.JSON).
                         body(userDetails).
@@ -32,8 +32,7 @@ public class CreateUser {
                         statusCode(200).
                         extract().response();
 
-        System.out.println("StatusCode: " + createResponse.getStatusCode());
-        System.out.println("\nDResponse: " + createResponse.asPrettyString());
+        System.out.println("\nDResponse: " + userResponse.asPrettyString());
     }
 
     @Test
@@ -71,6 +70,6 @@ public class CreateUser {
                         statusCode(200).
                         extract().response();
 
-        System.out.println("\nDetails of users created: " + usersResponse.asPrettyString());
+        System.out.println("\nResponse: " + usersResponse.asPrettyString());
     }
 }
