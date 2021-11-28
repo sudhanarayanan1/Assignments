@@ -1,8 +1,5 @@
 package DataClasses;
 
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
-@JsonPropertyOrder({"id", "username", "firstname", "lastname", "email", "password", "phone", "userstatus"})
 public class UserDetails {
 
     public int getId() {
