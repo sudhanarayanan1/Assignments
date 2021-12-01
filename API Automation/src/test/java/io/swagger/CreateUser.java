@@ -34,9 +34,9 @@ public class CreateUser {
                 given().
                         contentType(ContentType.JSON).
                         body(jsonData).
-                        when().
+                when().
                         post("https://petstore.swagger.io/v2/user").
-                        then().
+                then().
                         extract().response();
 
         validate.validateAPI(response);
@@ -49,9 +49,9 @@ public class CreateUser {
                 given().
                         contentType(ContentType.JSON).
                         body(jsonData).
-                        when().
+                when().
                         post("https://petstore.swagger.io/v2/user/createWithArray").
-                        then().
+                then().
                         extract().response();
 
         validate.validateAPI(usersResponse);
@@ -65,9 +65,9 @@ public class CreateUser {
         Response response =
                 given().
                         contentType(ContentType.JSON).
-                        when().
+                when().
                         post(url).
-                        then().
+                then().
                         extract().response();
 
         Assert.assertEquals(405, response.getStatusCode());
@@ -81,9 +81,9 @@ public class CreateUser {
                 given().
                         contentType(ContentType.JSON).
                         body(jsonData).
-                        when().
+                when().
                         post(url).
-                        then().
+                then().
                         extract().response();
 
         Assert.assertEquals(500, response.getStatusCode());
@@ -97,9 +97,9 @@ public class CreateUser {
                 given().
                         contentType(ContentType.JSON).
                         body(jsonData).
-                        when().
+                when().
                         post(url).
-                        then().
+                then().
                         extract().response();
 
         Assert.assertEquals(500, response.getStatusCode());
@@ -113,9 +113,9 @@ public class CreateUser {
                 given().
                         contentType(ContentType.JSON).
                         body(jsonData).
-                        when().
+                when().
                         post(url).
-                        then().
+                then().
                         extract().response();
 
         Assert.assertEquals(400, response.getStatusCode());
@@ -128,9 +128,9 @@ public class CreateUser {
         given().
                 contentType(ContentType.JSON).
                 body(jsonData).
-                when().
+        when().
                 post(url).
-                then().
+       then().
                 assertThat().
                 statusCode(400);
     }
